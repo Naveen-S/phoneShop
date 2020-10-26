@@ -1,6 +1,6 @@
 // Instead of placing all routes in one place, separate it out into multiple files.
 import express from 'express';
-// For exception handling 
+// For exception handling
 import asyncHandler from 'express-async-handler';
 import Product from '../models/productModel.js';
 const router = express.Router();
