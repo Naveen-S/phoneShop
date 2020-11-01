@@ -4,17 +4,22 @@ import dotenv from 'dotenv';
 import colors from 'colors'; // Just to add colors to your console messages.
 import connectDB from './config/db.js';
 import ProductRouter from './routes/productRoute.js';
+import UserRouter from './routes/userRoute.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 dotenv.config();
 connectDB();
 const app = express();
 
+// To capture json in request body.
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('Hola!!!');
 });
 
 app.use('/api/products', ProductRouter);
+app.use('/api/users', UserRouter);
 // app.get('/api/products', (req, res) => {
 //   res.json(products);
 // });
